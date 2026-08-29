@@ -2,7 +2,7 @@
 
 > A modern, responsive website designed for Hotel Chaitanya Wine Bar, showcasing its menu, ambience, gallery, reservations, and contact information.
 
-![Website Preview](assets/images/hero/hotel_homescreen.png)
+![Website Preview](assets/images/gallery/website_preview.png)
 
 ---
 
