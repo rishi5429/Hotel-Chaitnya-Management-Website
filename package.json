@@ -1,0 +1,20 @@
+{
+  "name": "hotel-chaitanya",
+  "version": "1.0.0",
+  "description": "Hotel Chaitanya Wine Bar & Restaurant - Premium Website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000 --open=index.html --no-browser",
+    "start": "live-server --port=3000 --open=index.html"
+  },
+  "keywords": [
+    "hotel",
+    "restaurant",
+    "wine-bar"
+  ],
+  "author": "Hotel Chaitanya",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

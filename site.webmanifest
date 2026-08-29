@@ -1,0 +1,16 @@
+{
+  "name": "Hotel Chaitanya Wine Bar & Restaurant",
+  "short_name": "Hotel Chaitanya",
+  "description": "Premier authentic Indian fine dining, exquisite wines, and warm hospitality in Borgaon Manju, Akola, Maharashtra.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#F5F2EB",
+  "theme_color": "#211E1A",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

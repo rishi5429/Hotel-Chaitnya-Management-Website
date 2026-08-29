@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chaitanya — Wine Bar & Restaurant. Authentic Indian cuisine and a curated wine cellar on NH-6, Borgaon Manju, Akola, Maharashtra. Reserve your table.">
+    <meta name="theme-color" content="#F5F2EB">
+    <meta name="robots" content="index, follow">
+
+    <!-- TODO: Add canonical URL after final production domain is configured -->
+    <!-- Example: <link rel="canonical" href="https://your-domain.com/"> -->
+
+    <script>
+        (function () {
+            try {
+                var savedTheme = localStorage.getItem('chaitanya-theme');
+                var theme = savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.dataset.theme = theme;
+            } catch (error) {
+                document.documentElement.dataset.theme = 'light';
+            }
+        }());
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Chaitanya — Wine Bar &amp; Restaurant">
+    <meta property="og:description" content="Authentic Indian cuisine and a curated wine cellar on NH-6, Borgaon Manju, Akola. Reserve your table.">
+    <meta property="og:image" content="assets/images/hero/hotel_homescreen.png">
+    <meta property="og:locale" content="en_IN">
+    <!-- TODO: Add og:url after final production domain is configured -->
+    <!-- Example: <meta property="og:url" content="https://your-domain.com/"> -->
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chaitanya — Wine Bar &amp; Restaurant">
+    <meta name="twitter:description" content="Authentic Indian cuisine and a curated wine cellar on NH-6, Borgaon Manju, Akola. Reserve your table.">
+    <meta name="twitter:image" content="assets/images/hero/hotel_homescreen.png">
+
+    <title>Chaitanya — Wine Bar &amp; Restaurant | Borgaon Manju, Akola</title>
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- Fonts: Playfair Display (editorial serif) + Plus Jakarta Sans (UI sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <noscript>
+        <style>
+            .reveal { opacity: 1 !important; transform: none !important; }
+        </style>
+    </noscript>
+
+    <!-- Structured data: LocalBusiness / Restaurant -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Chaitanya Wine Bar & Restaurant",
+        "description": "Authentic Indian cuisine and a curated wine cellar on NH-6, Borgaon Manju, Akola, Maharashtra.",
+        "image": "assets/images/hero/hotel_homescreen.png",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "NH-6 Road, Borgaon Manju",
+            "addressRegion": "Maharashtra",
+            "postalCode": "444102",
+            "addressCountry": "IN"
+        },
+        "telephone": ["+919922383501", "+919922385346"],
+        "email": "reservations@hotelchaitanya.com",
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 20.713512,
+            "longitude": 77.143299
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "11:00",
+            "closes": "23:30"
+        },
+        "priceRange": "₹110 – ₹3,900",
+        "servesCuisine": "Indian",
+        "hasMenu": "#restaurant"
+    }
+    </script>
+</head>
+<body>
+    <a href="#home" class="skip-link">Skip to content</a>
+
+    <!-- Scroll progress -->
+    <div class="scroll-progress-bar" id="scrollProgress" aria-hidden="true"></div>
+
+    <!-- ============================= Header ============================= -->
+    <header id="mainHeader">
+        <div class="container header-container">
+            <a href="#home" class="logo" aria-label="Chaitanya — home">
+                <span class="brand-title">Chaitanya</span>
+                <span class="brand-subtitle">Wine Bar &amp; Restaurant</span>
+            </a>
+
+            <nav class="main-nav" aria-label="Primary">
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link active" aria-current="page">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#restaurant" class="nav-link">Dining</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#testimonials" class="nav-link">Guests</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button type="button" class="btn btn-primary btn-sm" id="headerReserveBtn">Reserve</button>
+                <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" title="Switch to dark mode">
+                    <span class="theme-icon theme-icon-sun" aria-hidden="true">☼</span>
+                    <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+                </button>
+                <button type="button" class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile navigation -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true">
+        <div class="mobile-nav-content" role="dialog" aria-modal="true" aria-label="Navigation">
+            <div class="mobile-nav-header">
+                <span class="brand-title">Chaitanya</span>
+                <button type="button" class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close menu">&times;</button>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="#home" class="mobile-link"><span class="mobile-link-index">01</span>Home</a></li>
+                <li><a href="#about" class="mobile-link"><span class="mobile-link-index">02</span>About</a></li>
+                <li><a href="#restaurant" class="mobile-link"><span class="mobile-link-index">03</span>Dining</a></li>
+                <li><a href="#gallery" class="mobile-link"><span class="mobile-link-index">04</span>Gallery</a></li>
+                <li><a href="#testimonials" class="mobile-link"><span class="mobile-link-index">05</span>Guests</a></li>
+                <li><a href="#contact" class="mobile-link"><span class="mobile-link-index">06</span>Contact</a></li>
+            </ul>
+            <div class="mobile-nav-footer">
+                <button type="button" class="btn btn-primary w-100" id="mobileReserveBtn">Reserve a Table</button>
+                <p class="mobile-nav-meta">Open daily · 11:00 – 23:30<br>NH-6, Borgaon Manju, Akola</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================= Hero ============================= -->
+    <section id="home" class="hero-section">
+        <div class="hero-media">
+            <img src="assets/images/hero/hotel_homescreen.png" alt="Chaitanya Wine Bar &amp; Restaurant at dusk" class="hero-img" fetchpriority="high">
+            <div class="hero-scrim" aria-hidden="true"></div>
+        </div>
+
+        <div class="container hero-content">
+            <p class="hero-kicker">Borgaon Manju · Akola · Since 2004</p>
+            <h1 class="hero-title">A quiet table,<br><em>an honest feast.</em></h1>
+            <p class="hero-subtitle">Authentic Indian cuisine and a curated cellar of fine wines, served with two decades of Maharashtrian hospitality on the NH-6.</p>
+
+            <div class="hero-cta-group">
+                <button type="button" class="btn btn-light btn-lg" id="heroReserveBtn">Reserve a Table</button>
+                <a href="#restaurant" class="link-underline link-on-dark">Explore the menu</a>
+            </div>
+        </div>
+
+        <div class="hero-footer container">
+            <p class="hero-status"><span class="pulse-dot" aria-hidden="true"></span>Open today · 11:00 – 23:30</p>
+            <a href="#about" class="scroll-down-indicator" aria-label="Scroll to About section">Scroll</a>
+        </div>
+    </section>
+
+    <!-- ============================= About ============================= -->
+    <section id="about" class="about-section section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text-column reveal">
+                    <p class="section-tag">Our Story</p>
+                    <h2 class="section-title">Where tradition meets<br><em>fine taste</em></h2>
+                    <p class="about-lead">For over twenty years, Chaitanya has been the quiet benchmark for culinary craft and warm hospitality along the NH-6 — a place travellers plan their journeys around.</p>
+                    <p class="about-body">Our kitchen honours heirloom recipes, prepared by seasoned chefs with hand-picked spices and the freshest local produce. Alongside, a considered wine cellar gathers selections from India's finest vineyards and beyond — each chosen to belong at your table.</p>
+
+                    <ul class="about-features">
+                        <li>
+                            <h3>Authentic gastronomy</h3>
+                            <p>Tandoori classics, slow dum biryanis and rich gravies, crafted with precision.</p>
+                        </li>
+                        <li>
+                            <h3>A considered cellar</h3>
+                            <p>Cabernet, Shiraz and crisp whites — paired thoughtfully with every course.</p>
+                        </li>
+                        <li>
+                            <h3>Calm, private spaces</h3>
+                            <p>Air-conditioned dining halls and intimate family seating for every occasion.</p>
+                        </li>
+                        <li>
+                            <h3>Attentive service</h3>
+                            <p>A team devoted to unhurried, memorable evenings — every single day.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="about-image-column reveal">
+                    <figure class="about-image-frame">
+                        <img src="assets/images/gallery/hotel6.jpg" alt="The dining lounge at Chaitanya" class="about-img" width="248" height="310" loading="lazy" decoding="async">
+                        <figcaption class="about-img-caption">The main dining lounge</figcaption>
+                    </figure>
+                    <div class="about-stats" role="list">
+                        <div class="stat" role="listitem">
+                            <span class="stat-number">20<span class="stat-plus">+</span></span>
+                            <span class="stat-label">Years of craft</span>
+                        </div>
+                        <div class="stat" role="listitem">
+                            <span class="stat-number">50<span class="stat-plus">+</span></span>
+                            <span class="stat-label">Curated wines</span>
+                        </div>
+                        <div class="stat" role="listitem">
+                            <span class="stat-number">4.9</span>
+                            <span class="stat-label">Guest rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================= Dining / Menu ============================= -->
+    <section id="restaurant" class="restaurant-section section-padding alt-bg">
+        <div class="container">
+            <header class="section-header reveal">
+                <p class="section-tag">Dining</p>
+                <h2 class="section-title">The chef's <em>selections</em></h2>
+                <p class="section-subtitle">A short introduction to the kitchen and cellar — the full menu awaits at your table.</p>
+            </header>
+
+            <div class="menu-tabs reveal" id="menuTabs" aria-label="Menu categories">
+                <button type="button" class="menu-tab-btn active" data-category="all" aria-pressed="true">All</button>
+                <button type="button" class="menu-tab-btn" data-category="signature" aria-pressed="false">Chef's specials</button>
+                <button type="button" class="menu-tab-btn" data-category="wines" aria-pressed="false">Wines</button>
+                <button type="button" class="menu-tab-btn" data-category="starters" aria-pressed="false">Starters</button>
+            </div>
+
+            <div class="menu-grid" id="menuGrid">
+                <!-- Item 1 -->
+                <article class="menu-card reveal" data-category="signature">
+                    <div class="menu-card-img-wrapper">
+                        <img src="assets/images/menu/chicken.jpeg" alt="Chaitanya special butter chicken" class="menu-card-img" width="400" height="300" loading="lazy" decoding="async">
+                        <span class="badge-tag">Signature</span>
+                    </div>
+                    <div class="menu-card-content">
+                        <div class="menu-card-header">
+                            <h3 class="menu-item-title">Special Butter Chicken</h3>
+                            <span class="menu-item-price">₹380</span>
+                        </div>
+                        <p class="menu-item-desc">Tandoori chicken simmered in a velvet tomato-cashew gravy with fresh cream and warm spices.</p>
+                        <div class="menu-card-footer">
+                            <span class="wine-pairing">Pairs with Sula Cabernet Shiraz</span>
+                            <button class="link-underline reserve-this-btn" data-item="Special Butter Chicken">Reserve</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Item 2 -->
+                <article class="menu-card reveal" data-category="wines">
+                    <div class="menu-card-img-wrapper">
+                        <img src="assets/images/menu/alchol.jpeg" alt="Sula Cabernet Shiraz reserve bottle" class="menu-card-img" width="400" height="300" loading="lazy" decoding="async">
+                        <span class="badge-tag">Cellar</span>
+                    </div>
+                    <div class="menu-card-content">
+                        <div class="menu-card-header">
+                            <h3 class="menu-item-title">Sula Cabernet Shiraz</h3>
+                            <span class="menu-item-price">₹2,400</span>
+                        </div>
+                        <p class="menu-item-desc">A full-bodied red with black pepper, spice and dark fruit, aged in French oak barrels.</p>
+                        <div class="menu-card-footer">
+                            <span class="wine-pairing">Vintage red · by the bottle</span>
+                            <button class="link-underline reserve-this-btn" data-item="Sula Cabernet Shiraz">Reserve</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Item 3 -->
+                <article class="menu-card reveal" data-category="signature">
+                    <div class="menu-card-img-wrapper">
+                        <img src="assets/images/menu/food2.jpg" alt="Royal Hyderabadi dum biryani" class="menu-card-img" width="400" height="300" loading="lazy" decoding="async">
+                        <span class="badge-tag">Signature</span>
+                    </div>
+                    <div class="menu-card-content">
+                        <div class="menu-card-header">
+                            <h3 class="menu-item-title">Hyderabadi Dum Biryani</h3>
+                            <span class="menu-item-price">₹360</span>
+                        </div>
+                        <p class="menu-item-desc">Long-grain basmati layered with marinated meat, saffron and hand-ground spices, cooked on slow dum.</p>
+                        <div class="menu-card-footer">
+                            <span class="wine-pairing">Pairs with Fratelli Sette</span>
+                            <button class="link-underline reserve-this-btn" data-item="Hyderabadi Dum Biryani">Reserve</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Item 4 -->
+                <article class="menu-card reveal" data-category="starters">
+                    <div class="menu-card-img-wrapper">
+                        <img src="assets/images/menu/papad.jpg" alt="Crispy roasted masala papad" class="menu-card-img" width="400" height="300" loading="lazy" decoding="async">
+                        <span class="badge-tag">Vegetarian</span>
+                    </div>
+                    <div class="menu-card-content">
+                        <div class="menu-card-header">
+                            <h3 class="menu-item-title">Roasted Masala Papad</h3>
+                            <span class="menu-item-price">₹110</span>
+                        </div>
+                        <p class="menu-item-desc">Crisp urad papad with diced onion, tomato, coriander, green chilli and chaat masala.</p>
+                        <div class="menu-card-footer">
+                            <span class="wine-pairing">An ideal opener</span>
+                            <button class="link-underline reserve-this-btn" data-item="Roasted Masala Papad">Reserve</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Item 5 -->
+                <article class="menu-card reveal" data-category="wines">
+                    <div class="menu-card-img-wrapper">
+                        <img src="assets/images/menu/dinning.jpeg" alt="Grover Zampa La Réserve" class="menu-card-img" width="400" height="300" loading="lazy" decoding="async">
+                        <span class="badge-tag">Cellar</span>
+                    </div>
+                    <div class="menu-card-content">
+                        <div class="menu-card-header">
+                            <h3 class="menu-item-title">Grover Zampa La Réserve</h3>
+                            <span class="menu-item-price">₹2,800</span>
+                        </div>
+                        <p class="menu-item-desc">An elegant Cabernet–Shiraz blend with notes of dark berry, chocolate and vanilla.</p>
+                        <div class="menu-card-footer">
+                            <span class="wine-pairing">Premium reserve · by the bottle</span>
+                            <button class="link-underline reserve-this-btn" data-item="Grover Zampa La Réserve">Reserve</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Item 6 -->
+                <article class="menu-card reveal" data-category="starters">
+                    <div class="menu-card-img-wrapper">
+                        <img src="assets/images/menu/amities.jpg" alt="Tandoori malai paneer tikka" class="menu-card-img" width="400" height="300" loading="lazy" decoding="async">
+                        <span class="badge-tag">Vegetarian</span>
+                    </div>
+                    <div class="menu-card-content">
+                        <div class="menu-card-header">
+                            <h3 class="menu-item-title">Malai Paneer Tikka</h3>
+                            <span class="menu-item-price">₹320</span>
+                        </div>
+                        <p class="menu-item-desc">Cottage cheese marinated in cream, cashew and green cardamom, chargrilled in the clay tandoor.</p>
+                        <div class="menu-card-footer">
+                            <span class="wine-pairing">Pairs with Sauvignon Blanc</span>
+                            <button class="link-underline reserve-this-btn" data-item="Malai Paneer Tikka">Reserve</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="menu-actions reveal">
+                <button type="button" class="btn btn-outline btn-lg" id="openFullMenuBtn">View the full menu</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================= Gallery ============================= -->
+    <section id="gallery" class="gallery-section section-padding">
+        <div class="container">
+            <header class="section-header reveal">
+                <p class="section-tag">Gallery</p>
+                <h2 class="section-title">Atmosphere &amp; <em>moments</em></h2>
+                <p class="section-subtitle">A glimpse of the dining rooms, the cellar and the table.</p>
+            </header>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <button type="button" class="gallery-card reveal g-tall" data-img="assets/images/hero/hotelbest.jpg" data-caption="The exterior at dusk">
+                    <img src="assets/images/hero/hotelbest.jpg" alt="Chaitanya exterior at dusk" class="gallery-img" width="300" height="480" loading="lazy" decoding="async">
+                    <span class="gallery-overlay"><span class="gallery-title">The exterior</span></span>
+                </button>
+                <button type="button" class="gallery-card reveal" data-img="assets/images/gallery/hotel6.jpg" data-caption="The main dining lounge">
+                    <img src="assets/images/gallery/hotel6.jpg" alt="The main dining lounge" class="gallery-img" width="300" height="240" loading="lazy" decoding="async">
+                    <span class="gallery-overlay"><span class="gallery-title">Dining lounge</span></span>
+                </button>
+                <button type="button" class="gallery-card reveal" data-img="assets/images/gallery/hotel7.jpg" data-caption="The wine bar &amp; lounge">
+                    <img src="assets/images/gallery/hotel7.jpg" alt="The wine bar and lounge" class="gallery-img" width="300" height="240" loading="lazy" decoding="async">
+                    <span class="gallery-overlay"><span class="gallery-title">Wine bar</span></span>
+                </button>
+                <button type="button" class="gallery-card reveal g-tall" data-img="assets/images/gallery/hotelsomething.jpg" data-caption="Private family seating">
+                    <img src="assets/images/gallery/hotelsomething.jpg" alt="Private family seating" class="gallery-img" width="300" height="480" loading="lazy" decoding="async">
+                    <span class="gallery-overlay"><span class="gallery-title">Private seating</span></span>
+                </button>
+                <button type="button" class="gallery-card reveal" data-img="assets/images/menu/chicken.jpeg" data-caption="From the tandoor">
+                    <img src="assets/images/menu/chicken.jpeg" alt="A gourmet dish from the tandoor" class="gallery-img" width="300" height="240" loading="lazy" decoding="async">
+                    <span class="gallery-overlay"><span class="gallery-title">The kitchen</span></span>
+                </button>
+                <button type="button" class="gallery-card reveal" data-img="assets/images/menu/alchol.jpeg" data-caption="The cellar collection">
+                    <img src="assets/images/menu/alchol.jpeg" alt="Wine bottles from the cellar" class="gallery-img" width="300" height="240" loading="lazy" decoding="async">
+                    <span class="gallery-overlay"><span class="gallery-title">The cellar</span></span>
+                </button>
+                <button type="button" class="gallery-card reveal" data-img="assets/images/menu/food2.jpg" data-caption="A traditional feast">
+                    <img src="assets/images/menu/food2.jpg" alt="Traditional Indian feast" class="gallery-img" width="300" height="240" loading="lazy" decoding="async">
+                    <span class="gallery-overlay"><span class="gallery-title">The table</span></span>
+                </button>
+                <button type="button" class="gallery-card reveal" data-img="assets/images/menu/amities.jpg" data-caption="Set for the evening">
+                    <img src="assets/images/menu/amities.jpg" alt="Dining table set for the evening" class="gallery-img" width="300" height="240" loading="lazy" decoding="async">
+                    <span class="gallery-overlay"><span class="gallery-title">The evening</span></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================= Testimonials ============================= -->
+    <section id="testimonials" class="testimonials-section section-padding dark-bg">
+        <div class="container">
+            <header class="section-header reveal">
+                <p class="section-tag on-dark">Guests</p>
+                <h2 class="section-title on-dark">Words from <em>our patrons</em></h2>
+            </header>
+
+            <div class="testimonial-slider-container reveal">
+                <div class="testimonial-viewport">
+                    <div class="testimonial-track" id="testimonialTrack">
+                        <blockquote class="testimonial-card">
+                            <p class="review-text">"The food at Chaitanya is absolutely divine. The authentic spices and thoughtful wine pairings made our family dinner unforgettable — truly the finest wine bar in the Akola region."</p>
+                            <footer class="reviewer-profile">
+                                <span class="reviewer-name">Priya &amp; Rahul Deshmukh</span>
+                                <span class="reviewer-place">Akola, Maharashtra</span>
+                            </footer>
+                        </blockquote>
+
+                        <blockquote class="testimonial-card">
+                            <p class="review-text">"Exceptional service on the NH-6. The butter chicken with Sula Cabernet Shiraz was magnificent — a calm room, gracious staff, and impeccable care throughout."</p>
+                            <footer class="reviewer-profile">
+                                <span class="reviewer-name">Amit Thakur</span>
+                                <span class="reviewer-place">Borgaon Manju</span>
+                            </footer>
+                        </blockquote>
+
+                        <blockquote class="testimonial-card">
+                            <p class="review-text">"Whenever we travel this highway, Chaitanya is our mandatory stop. Outstanding biryani, gentle music, and a wine cellar you would not expect to find here."</p>
+                            <footer class="reviewer-profile">
+                                <span class="reviewer-name">Sunil Kulkarni</span>
+                                <span class="reviewer-place">Nagpur</span>
+                            </footer>
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class="slider-controls">
+                    <button class="slider-arrow" id="prevTestimonial" aria-label="Previous review">&larr;</button>
+                    <div class="slider-dots" id="testimonialDots"></div>
+                    <button class="slider-arrow" id="nextTestimonial" aria-label="Next review">&rarr;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================= Contact ============================= -->
+    <section id="contact" class="contact-section section-padding">
+        <div class="container">
+            <header class="section-header reveal">
+                <p class="section-tag">Contact</p>
+                <h2 class="section-title">Visits &amp; <em>reservations</em></h2>
+                <p class="section-subtitle">We look forward to welcoming you — for dinner, celebrations or private gatherings.</p>
+            </header>
+
+            <div class="contact-grid">
+                <div class="contact-info-card reveal">
+                    <dl class="contact-methods">
+                        <div class="contact-method-item">
+                            <dt>Address</dt>
+                            <dd>
+                                NH-6 Road, Borgaon Manju,<br>Maharashtra 444102, India
+                                <a href="https://maps.google.com/maps?q=20.713512,77.143299" target="_blank" rel="noopener" class="link-underline method-link">Get directions</a>
+                            </dd>
+                        </div>
+                        <div class="contact-method-item">
+                            <dt>Telephone</dt>
+                            <dd>
+                                <a href="tel:+919922383501">+91 99223 83501</a><br>
+                                <a href="tel:+919922385346">+91 99223 85346</a>
+                            </dd>
+                        </div>
+                        <div class="contact-method-item">
+                            <dt>Email</dt>
+                            <dd>
+                                <a href="mailto:reservations@hotelchaitanya.com">reservations@hotelchaitanya.com</a><br>
+                                <a href="mailto:info@hotelchaitanya.com">info@hotelchaitanya.com</a>
+                            </dd>
+                        </div>
+                        <div class="contact-method-item">
+                            <dt>Hours</dt>
+                            <dd>Monday – Sunday<br>11:00 – 23:30 · open every day</dd>
+                        </div>
+                    </dl>
+
+                    <div class="social-links-wrapper">
+                        <a href="https://wa.me/919922383501" target="_blank" rel="noopener" class="link-underline" aria-label="Chat on WhatsApp">WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="contact-form-card reveal">
+                    <h3 class="form-card-title">Send us a message</h3>
+                    <form id="contactForm" class="styled-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" autocomplete="name" placeholder="Your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Table enquiry, private event…">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="How may we assist you?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg w-100">Continue in email</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="map-section-wrapper reveal">
+                <iframe
+                    src="https://maps.google.com/maps?q=20.713512,77.143299&z=15&output=embed"
+                    width="100%"
+                    height="420"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    title="Chaitanya on Google Maps — NH-6, Borgaon Manju"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================= Reservation CTA band ============================= -->
+    <section class="cta-band dark-bg" aria-label="Reserve a table">
+        <div class="container cta-band-inner reveal">
+            <h2 class="cta-band-title">An evening at <em>Chaitanya</em></h2>
+            <p class="cta-band-sub">Reserve your table — we will take care of the rest.</p>
+            <button class="btn btn-light btn-lg" id="ctaReserveBtn">Reserve a Table</button>
+        </div>
+    </section>
+
+    <!-- ============================= Footer ============================= -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="brand-title">Chaitanya</span>
+                    <span class="brand-subtitle">Wine Bar &amp; Restaurant</span>
+                    <p class="footer-bio">Authentic Indian dining and curated fine wines on the NH-6 — a family destination for over two decades.</p>
+                </div>
+
+                <nav class="footer-col" aria-label="Footer navigation">
+                    <h3 class="footer-heading">Explore</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#restaurant">Dining</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#testimonials">Guests</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer-col">
+                    <h3 class="footer-heading">Visit</h3>
+                    <ul class="footer-links">
+                        <li>NH-6, Borgaon Manju, Akola</li>
+                        <li><a href="tel:+919922383501">+91 99223 83501</a></li>
+                        <li><a href="mailto:reservations@hotelchaitanya.com">reservations@hotelchaitanya.com</a></li>
+                        <li>Daily · 11:00 – 23:30</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-heading">Newsletter</h3>
+                    <p class="newsletter-desc">Occasional notes on wine evenings and seasonal menus.</p>
+                    <form id="newsletterForm" class="footer-newsletter-form" novalidate>
+                        <label for="newsletterEmail" class="visually-hidden">Email address</label>
+                        <div class="newsletter-input-group">
+                            <input type="email" id="newsletterEmail" placeholder="Email address" required>
+                            <button type="submit" class="newsletter-submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="copyrightYear">2026</span> Chaitanya Wine Bar &amp; Restaurant. All rights reserved.</p>
+                <div class="footer-socials">
+                    <a href="https://wa.me/919922383501" target="_blank" rel="noopener">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================= Reservation modal ============================= -->
+    <div id="reservationModal" class="modal-backdrop" aria-hidden="true">
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="reservationTitle">
+            <button class="modal-close-btn" id="closeReservationModal" aria-label="Close reservation form">&times;</button>
+            <div class="modal-header">
+                <p class="section-tag">Reservations</p>
+                <h2 id="reservationTitle" class="modal-title">Reserve your table</h2>
+                <p class="modal-sub">Choose your preferred time and seating. We’ll prepare a WhatsApp message for you to send to our team.</p>
+            </div>
+
+            <form id="reservationForm" class="styled-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reserveName">Full name</label>
+                        <input type="text" id="reserveName" name="name" autocomplete="name" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reservePhone">Phone</label>
+                        <input type="tel" id="reservePhone" name="phone" autocomplete="tel" placeholder="+91 98765 43210" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reserveEmail">Email <span class="label-optional">optional</span></label>
+                        <input type="email" id="reserveEmail" name="email" autocomplete="email" placeholder="you@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="reserveGuests">Guests</label>
+                        <select id="reserveGuests" name="guests" required>
+                            <option value="">Select guests</option>
+                            <option value="1">1 guest</option>
+                            <option value="2">2 guests</option>
+                            <option value="3">3 guests</option>
+                            <option value="4">4 guests</option>
+                            <option value="5">5 guests</option>
+                            <option value="6">6 guests</option>
+                            <option value="7+">7+ guests</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reserveDate">Date</label>
+                        <input type="date" id="reserveDate" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reserveTime">Time</label>
+                        <select id="reserveTime" name="time" required>
+                            <option value="">Select a time</option>
+                            <option value="12:00 PM">12:00 — lunch</option>
+                            <option value="01:00 PM">13:00 — lunch</option>
+                            <option value="02:00 PM">14:00 — lunch</option>
+                            <option value="07:30 PM">19:30 — dinner</option>
+                            <option value="08:30 PM">20:30 — dinner</option>
+                            <option value="09:30 PM">21:30 — dinner</option>
+                            <option value="10:30 PM">22:30 — late dinner</option>
+                        </select>
+                    </div>
+                </div>
+
+                <fieldset class="form-group">
+                    <legend class="form-legend">Seating preference</legend>
+                    <div class="radio-pill-group">
+                        <label class="radio-pill">
+                            <input type="radio" name="diningArea" value="Main Dining Room" checked>
+                            <span>Main dining</span>
+                        </label>
+                        <label class="radio-pill">
+                            <input type="radio" name="diningArea" value="Wine Bar Lounge">
+                            <span>Wine bar</span>
+                        </label>
+                        <label class="radio-pill">
+                            <input type="radio" name="diningArea" value="Private Family Section">
+                            <span>Private family</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div class="form-group">
+                    <label for="reserveNotes">Special requests <span class="label-optional">optional</span></label>
+                    <textarea id="reserveNotes" name="notes" rows="2" placeholder="Celebrations, wine pairing, dietary notes…"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg w-100">Continue to WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ============================= Full menu modal ============================= -->
+    <div id="fullMenuModal" class="modal-backdrop" aria-hidden="true">
+        <div class="modal-card full-menu-card" role="dialog" aria-modal="true" aria-labelledby="fullMenuTitle">
+            <button class="modal-close-btn" id="closeFullMenuModal" aria-label="Close menu">&times;</button>
+            <div class="modal-header">
+                <p class="section-tag">The Menu</p>
+                <h2 id="fullMenuTitle" class="modal-title">Dining &amp; cellar card</h2>
+                <p class="modal-sub">Prepared fresh, with natural spices and the finest ingredients.</p>
+            </div>
+
+            <div class="full-menu-tabs" role="tablist" aria-label="Full menu categories">
+                <button class="full-tab active" data-target="full-starters">Starters &amp; tandoor</button>
+                <button class="full-tab" data-target="full-mains">Main course</button>
+                <button class="full-tab" data-target="full-biryani">Biryani &amp; rice</button>
+                <button class="full-tab" data-target="full-wines">Wine cellar</button>
+            </div>
+
+            <div class="full-menu-body">
+                <div class="full-category-pane active" id="full-starters">
+                    <div class="full-item-row">
+                        <div class="item-info">
+                            <h4>Paneer Malai Tikka <span class="diet-mark veg" title="Vegetarian" aria-label="Vegetarian"></span></h4>
+                            <p>Cottage cheese in cashew cream, chargrilled in the tandoor.</p>
+                        </div>
+                        <span class="item-price">₹320</span>
+                    </div>
+                    <div class="full-item-row">
+                        <div class="item-info">
+                            <h4>Chicken Tandoori — half / full <span class="diet-mark nonveg" title="Non-vegetarian" aria-label="Non-vegetarian"></span></h4>
+                            <p>Chicken on the bone, spiced yogurt marinade, clay oven.</p>
+                        </div>
+                        <span class="item-price">₹340 / ₹620</span>
+                    </div>
+                    <div class="full-item-row">
+                        <div class="item-info">
+                            <h4>Mutton Seekh Kebab <span class="diet-mark nonveg" title="Non-vegetarian" aria-label="Non-vegetarian"></span></h4>
+                            <p>Minced mutton with aromatic herbs, charcoal grilled.</p>
+                        </div>
+                        <span class="item-price">₹420</span>
+                    </div>
+                    <div class="full-item-row">
+                        <div class="item-info">
+                            <h4>Roasted Masala Papad <span class="diet-mark veg" title="Vegetarian" aria-label="Vegetarian"></span></h4>
+                            <p>Crisp papad, diced salad and chaat spices.</p>
+                        </div>
+                        <span class="item-price">₹110</span>
+                    </div>
+                </div>
+
+                <div class="full-category-pane" id="full-mains">
+                    <div class="full-item-row">
+                        <div class="item-info">
+                            <h4>Special Butter Chicken <span class="diet-mark nonveg" title="Non-vegetarian" aria-label="Non-vegetarian"></span></h4>
+                            <p>Our flagship — velvet tomato-cashew sauce, fresh cream.</p>
+                        </div>
+                        <span class="item-price">₹380</span>
+                    </div>
+                    <div class="full-item-row">
+                        <div class="item-info">
+                            <h4>Mutton Rogan Josh <span class="diet-mark nonveg" title="Non-vegetarian" aria-label="Non-vegetarian"></span></h4>
+                            <p>Slow-cooked mutton in Kashmiri red chilli gravy.</p>
+                        </div>
+                        <span class="item-price">₹450</span>
+                    </div>
+                    <div class="full-item-row">
+                        <div class="item-info">
+                            <h4>Paneer Butter Masala <span class="diet-mark veg" title="Vegetarian" aria-label="Vegetarian"></span></h4>
+                            <p>Cottage cheese simmered in spiced butter gravy.</p>
+                        </div>
+                        <span class="item-price">₹310</span>
+                    </div>
+                    <div class="full-item-row">
+                        <div class="item-info">
+                            <h4>Dal Tadka, Dhaba Style <span class="diet-mark veg" title="Vegetarian" aria-label="Vegetarian"></span></h4>
+                            <p>Yellow lentils tempered with ghee, garlic and cumin.</p>
+                        </div>
+                        <span class="item-price">₹210</span>
+                    </div>
+                </div>
+
+                <div class="full-category-pane" id="full-biryani">
+                    <div class="full-item-row">
+                        <div class="item-info">
+                            <h4>Hyderabadi Chicken Dum Biryani <span class="diet-mark nonveg" title="Non-vegetarian" aria-label="Non-vegetarian"></span></h4>
+                            <p>Fragrant basmati, marinated chicken, slow dum.</p>
+                        </div>
+                        <span class="item-price">₹360</span>
+                    </div>
+                    <div class="full-item-row">
+                        <div class="item-info">
+                            <h4>Mutton Special Dum Biryani <span class="diet-mark nonveg" title="Non-vegetarian" aria-label="Non-vegetarian"></span></h4>
+                            <p>Succulent mutton, saffron rice, caramelised onion.</p>
+                        </div>
+                        <span class="item-price">₹460</span>
+                    </div>
+                    <div class="full-item-row">
+                        <div class="item-info">
+                            <h4>Royal Veg Dum Biryani <span class="diet-mark veg" title="Vegetarian" aria-label="Vegetarian"></span></h4>
+                            <p>Garden vegetables and paneer with biryani masala.</p>
+                        </div>
+                        <span class="item-price">₹280</span>
+                    </div>
+                </div>
+
+                <div class="full-category-pane" id="full-wines">
+                    <div class="full-item-row">
+                        <div class="item-info">
+                            <h4>Sula Cabernet Shiraz <span class="wine-type">red</span></h4>
+                            <p>Full-bodied Indian red — black pepper and cherry.</p>
+                        </div>
+                        <span class="item-price">₹2,400</span>
+                    </div>
+                    <div class="full-item-row">
+                        <div class="item-info">
+                            <h4>Grover Zampa La Réserve <span class="wine-type">red</span></h4>
+                            <p>Oaked Cabernet blend with velvety chocolate notes.</p>
+                        </div>
+                        <span class="item-price">₹2,800</span>
+                    </div>
+                    <div class="full-item-row">
+                        <div class="item-info">
+                            <h4>Fratelli Sette <span class="wine-type">reserve</span></h4>
+                            <p>Flagship blend — intense oak, vanilla, dark fruit.</p>
+                        </div>
+                        <span class="item-price">₹3,900</span>
+                    </div>
+                    <div class="full-item-row">
+                        <div class="item-info">
+                            <h4>Sula Chenin Blanc <span class="wine-type">white</span></h4>
+                            <p>Crisp, semi-dry white with floral and pineapple aromas.</p>
+                        </div>
+                        <span class="item-price">₹2,100</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="menuBookTableBtn">Reserve a table</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================= Lightbox ============================= -->
+    <div id="lightboxModal" class="lightbox-backdrop" aria-hidden="true">
+        <div class="lightbox-content" role="dialog" aria-modal="true" aria-label="Image preview">
+            <button class="lightbox-close-btn" id="closeLightboxBtn" aria-label="Close preview">&times;</button>
+            <img src="" alt="" id="lightboxImg">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+            <button class="lightbox-nav prev-lightbox" id="prevLightboxBtn" aria-label="Previous image">&larr;</button>
+            <button class="lightbox-nav next-lightbox" id="nextLightboxBtn" aria-label="Next image">&rarr;</button>
+        </div>
+    </div>
+
+    <!-- Toasts -->
+    <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+    <!-- Back to top -->
+    <button id="backToTopBtn" class="back-to-top-btn" aria-label="Back to top">&uarr;</button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
